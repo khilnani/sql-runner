@@ -1,0 +1,66 @@
+[
+  {
+    "conns": [
+      {
+        "id": "server 1",
+        "url": "",
+        "username": "",
+        "password": "",
+        "db": ""
+      },
+      {
+        "id": "server 2",
+        "url": "",
+        "username": "",
+        "password": "",
+        "db": ""
+      }
+    ],
+    "params": {
+      "@start_date": "'2014-08-26 00:00:00'",
+      "@end_date": "'2014-09-01 23:59:59'"
+    },
+    "sqls": [
+      {
+        "id": "SQL One",
+        "sql": "SELECT count(*) FROM test.table where id = 5 and created_dte between @start_date and @end_date order by created_date DESC;"
+      },
+      {
+        "id": "SQL Two",
+        "sql": "select count(*) from ( SELECT id FROM test.table where created_date between @start_date and @end_date group by id having count(id) > 1) as t;"
+      }
+    ]
+  },
+  {
+    "conns": [
+      {
+        "id": "server 3",
+        "url": "",
+        "username": "",
+        "password": "",
+        "db": ""
+      },
+      {
+        "id": "server 4",
+        "url": "",
+        "username": "",
+        "password": "",
+        "db": ""
+      }
+    ],
+    "params": {
+      "@start_date": "'2014-08-26 00:00:00'",
+      "@end_date": "'2014-09-01 23:59:59'"
+    },
+    "sqls": [
+      {
+        "id": "SQL Two",
+        "sql": "SELECT count(*) FROM test.table where id = 5 and created_dte between @start_date and @end_date order by created_date DESC;"
+      },
+      {
+        "id": "SQL Three",
+        "sql": "select count(*) from ( SELECT id FROM test.table where created_date between @start_date and @end_date group by id having count(id) > 1) as t;"
+      }
+    ]
+  }
+]
